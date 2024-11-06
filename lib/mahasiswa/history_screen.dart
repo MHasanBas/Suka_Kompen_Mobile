@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kompen/cetak/cetaksurat.dart';
-import 'package:kompen/models/task.dart';
+import 'package:kompen/mahasiswa/cetak/cetaksurat.dart';
+import 'package:kompen/mahasiswa/models/task.dart';
 import 'notification_screen.dart';
 import 'tasks_screen.dart';
-import 'home_page.dart'; // Pastikan ini ditambahkan
+import 'home_page.dart';
+import 'ProfilePage.dart';
 
 class HistoryScreen extends StatelessWidget {
   @override
@@ -23,7 +24,8 @@ class SukaKompen extends StatelessWidget {
     Task(
       title: 'Membuat PPT',
       description: 'Tugas Berhasil dikerjakan!',
-      tugas: 'Membuat Presentasi (PPT) untuk mata kuliah ...., dengan materi ....',
+      tugas:
+          'Membuat Presentasi (PPT) untuk mata kuliah ...., dengan materi ....',
       status: true,
       date: '02-09-2024',
       time: 10,
@@ -34,7 +36,8 @@ class SukaKompen extends StatelessWidget {
     Task(
       title: 'Arsip Absensi',
       description: 'Tugas Berhasil dikerjakan!',
-      tugas: 'Mengarsip kertas absensi dalam satu semester semua kelas dan prodi di satu jurusan di ruang admin secara lantai 6 gedung sipil offline',
+      tugas:
+          'Mengarsip kertas absensi dalam satu semester semua kelas dan prodi di satu jurusan di ruang admin secara lantai 6 gedung sipil offline',
       status: true,
       date: '21-08-2024',
       time: 5,
@@ -67,7 +70,8 @@ class SukaKompen extends StatelessWidget {
     Task(
       title: 'Membeli Sandal JTI',
       description: 'Tugas Gagal dikerjakan!',
-      tugas: 'Membeli sandal untuk fasilitas umum mushola di jurusan teknologi informasi gedung sipil lantai 6',
+      tugas:
+          'Membeli sandal untuk fasilitas umum mushola di jurusan teknologi informasi gedung sipil lantai 6',
       status: false,
       date: '02-03-2023',
       time: 0,
@@ -102,8 +106,8 @@ class SukaKompen extends StatelessWidget {
           itemBuilder: (context, index) {
             final task = tasks[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: 5.0, horizontal: 10.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
               child: Card(
                 color: Colors.white,
                 child: GestureDetector(
@@ -206,33 +210,49 @@ class SukaKompen extends StatelessWidget {
                   // Navigate to home
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()), // Ganti 'HomePage()' sesuai dengan class dari home_page.dart
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HomePage()), // Ganti 'HomePage()' sesuai dengan class dari home_page.dart
                   );
                 },
               ),
               IconButton(
-                icon: Icon(Icons.access_time, color: Colors.white, size: 30), // Warna icon putih dan ukuran lebih besar
+                icon: Icon(Icons.access_time,
+                    color: Colors.white,
+                    size: 30), // Warna icon putih dan ukuran lebih besar
                 onPressed: () {
                   // Arahkan ke halaman Histori
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HistoryScreen()), // Sesuaikan dengan nama kelas yang benar
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HistoryScreen()), // Sesuaikan dengan nama kelas yang benar
                   );
                 },
               ),
               SizedBox(width: 50), // Beri ruang lebih untuk tombol +
               IconButton(
-                icon: Icon(Icons.mail, color: Colors.white, size: 30), // Warna icon putih dan ukuran lebih besar
+                icon: Icon(Icons.mail,
+                    color: Colors.white,
+                    size: 30), // Warna icon putih dan ukuran lebih besar
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => NotificationScreen()), // Sesuaikan dengan nama kelas 'NotificationScreen'
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            NotificationScreen()), // Sesuaikan dengan nama kelas 'NotificationScreen'
                   );
                 },
               ),
               IconButton(
                 icon: const Icon(Icons.person, color: Colors.white, size: 30),
                 onPressed: () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ProfilePage()), // Sesuaikan dengan nama kelas 'NotificationScreen'
+                  );
                   // Navigate to profile page
                 },
               ),
@@ -249,7 +269,8 @@ class SukaKompen extends StatelessWidget {
         ),
         child: FloatingActionButton(
           elevation: 0, // Hapus elevation agar rata dengan lingkaran
-          backgroundColor: Colors.transparent, // Jadikan background transparan agar tidak bertumpuk
+          backgroundColor: Colors
+              .transparent, // Jadikan background transparan agar tidak bertumpuk
           onPressed: () {
             Navigator.push(
               context,

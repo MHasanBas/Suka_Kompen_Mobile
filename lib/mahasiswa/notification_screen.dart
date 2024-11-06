@@ -5,6 +5,7 @@ import 'print_letter_screen.dart';
 import 'tasks_screen.dart'; 
 import 'history_screen.dart';
 import 'home_page.dart';
+import 'ProfilePage.dart';
 
 
 class NotificationScreen extends StatelessWidget {
@@ -170,6 +171,11 @@ class NotificationScreen extends StatelessWidget {
                 icon: Icon(Icons.person, color: Colors.white, size: 30), // Warna icon putih dan ukuran lebih besar
                 onPressed: () {
                   // Aksi ke halaman profil
+                     Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>ProfilePage()), // Sesuaikan dengan nama kelas 'NotificationScreen'
+                  );
                 },
               ),
             ],

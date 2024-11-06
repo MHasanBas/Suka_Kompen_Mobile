@@ -4,10 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'akumulasi_page.dart'; // Impor AkumulasiPage
 import 'kompen_card.dart';
 import 'history_screen.dart';
-import 'tasks_screen.dart'; 
+import 'tasks_screen.dart';
 import 'notification_screen.dart';
-
-
+import 'ProfilePage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -87,6 +86,10 @@ class HomePage extends StatelessWidget {
                   // Button "Yuk Kompen" doesn't navigate anymore
                   ElevatedButton(
                     onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TasksScreen()),
+                      );
                       // Action can be left empty or define another action
                     },
                     style: ElevatedButton.styleFrom(
@@ -255,32 +258,46 @@ class HomePage extends StatelessWidget {
                   // Navigate to home
                 },
               ),
-            
+
               IconButton(
-                icon: Icon(Icons.access_time, color: Colors.white, size: 30), // Warna icon putih dan ukuran lebih besar
+                icon: Icon(Icons.access_time,
+                    color: Colors.white,
+                    size: 30), // Warna icon putih dan ukuran lebih besar
                 onPressed: () {
                   // Arahkan ke halaman Histori
-              Navigator.push(
-  context,
-  MaterialPageRoute(builder: (context) => HistoryScreen()), // Sesuaikan dengan nama kelas yang benar
-);
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HistoryScreen()), // Sesuaikan dengan nama kelas yang benar
+                  );
                 },
               ),
               SizedBox(width: 50), // Beri ruang lebih untuk tombol +
-             IconButton(
-  icon: Icon(Icons.mail, color: Colors.white, size: 30), // Warna icon putih dan ukuran lebih besar
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => NotificationScreen()), // Sesuaikan dengan nama kelas 'NotificationScreen'
-    );
-  },
-),
+              IconButton(
+                icon: Icon(Icons.mail,
+                    color: Colors.white,
+                    size: 30), // Warna icon putih dan ukuran lebih besar
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            NotificationScreen()), // Sesuaikan dengan nama kelas 'NotificationScreen'
+                  );
+                },
+              ),
 
               IconButton(
                 icon: const Icon(Icons.person, color: Colors.white, size: 30),
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ProfilePage()), // Sesuaikan dengan nama kelas yang benar
+                  );
+
                   // Navigate to profile page
                 },
               ),
@@ -288,7 +305,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-       floatingActionButton: Container(
+      floatingActionButton: Container(
         width: 90, // Ukuran lingkaran FAB lebih besar
         height: 90, // Tinggi lingkaran FAB lebih besar
         decoration: BoxDecoration(
@@ -297,7 +314,8 @@ class HomePage extends StatelessWidget {
         ),
         child: FloatingActionButton(
           elevation: 0, // Hapus elevation agar rata dengan lingkaran
-          backgroundColor: Colors.transparent, // Jadikan background transparan agar tidak bertumpuk
+          backgroundColor: Colors
+              .transparent, // Jadikan background transparan agar tidak bertumpuk
           onPressed: () {
             Navigator.push(
               context,
@@ -305,7 +323,7 @@ class HomePage extends StatelessWidget {
             );
           },
           child: Icon(
-            Icons.add, 
+            Icons.add,
             size: 50, // Ukuran icon + lebih besar dari icon biasa
             color: Colors.white, // Warna putih agar kontras
           ),

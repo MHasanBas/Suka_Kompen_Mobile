@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page.dart';
+import 'ProfilePage.dart';
+import 'notification_screen.dart';
+import 'history_screen.dart';
+import 'tasks_screen.dart';
 
 class AkumulasiPage extends StatelessWidget {
   const AkumulasiPage({super.key});
@@ -99,42 +103,64 @@ class AkumulasiPage extends StatelessWidget {
       ),
 
       // Navigasi bawah mirip seperti HomePage
-      bottomNavigationBar: BottomAppBar(
+       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         notchMargin: 5,
-        color: Colors.indigo[900], // Warna biru gelap seperti di halaman home
+        color: Colors.indigo[900], // Dark blue bottom bar
         child: SizedBox(
           height: 70,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-            IconButton(
-  icon: Icon(Icons.home, color: Colors.white, size: 30), // Warna icon putih dan ukuran lebih besar
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()), // Sesuaikan dengan nama kelas 'HomePage'
-    );
-  },
-),
-
               IconButton(
-                icon: const Icon(Icons.access_time,
-                    color: Colors.white, size: 30),
+                icon: const Icon(Icons.home, color: Colors.white, size: 30),
                 onPressed: () {
-                  // Navigate to time page
+                  // Navigate to home
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HomePage()), // Ganti 'HomePage()' sesuai dengan class dari home_page.dart
+                  );
                 },
               ),
-              const SizedBox(width: 50), // Space for the FAB
               IconButton(
-                icon: const Icon(Icons.mail, color: Colors.white, size: 30),
+                icon: Icon(Icons.access_time,
+                    color: Colors.white,
+                    size: 30), // Warna icon putih dan ukuran lebih besar
                 onPressed: () {
-                  // Navigate to mail page
+                  // Arahkan ke halaman Histori
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HistoryScreen()), // Sesuaikan dengan nama kelas yang benar
+                  );
+                },
+              ),
+              SizedBox(width: 50), // Beri ruang lebih untuk tombol +
+              IconButton(
+                icon: Icon(Icons.mail,
+                    color: Colors.white,
+                    size: 30), // Warna icon putih dan ukuran lebih besar
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            NotificationScreen()), // Sesuaikan dengan nama kelas 'NotificationScreen'
+                  );
                 },
               ),
               IconButton(
                 icon: const Icon(Icons.person, color: Colors.white, size: 30),
                 onPressed: () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ProfilePage()), // Sesuaikan dengan nama kelas 'NotificationScreen'
+                  );
                   // Navigate to profile page
                 },
               ),
@@ -143,28 +169,33 @@ class AkumulasiPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: Container(
-        width: 90, // Bigger size for the FAB
-        height: 90,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blueAccent, // Bright blue color
+        width: 90, // Ukuran lingkaran FAB lebih besar
+        height: 90, // Tinggi lingkaran FAB lebih besar
+        decoration: BoxDecoration(
+          shape: BoxShape.circle, // Bentuk lingkaran penuh
+          color: Colors.blueAccent, // Warna biru lebih cerah
         ),
         child: FloatingActionButton(
-          elevation: 0, // No shadow
-          backgroundColor: Colors.transparent, // Transparent to avoid stacking
+          elevation: 0, // Hapus elevation agar rata dengan lingkaran
+          backgroundColor: Colors
+              .transparent, // Jadikan background transparan agar tidak bertumpuk
           onPressed: () {
-            // Action when FAB is pressed
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TasksScreen()),
+            );
           },
-          child: const Icon(
+          child: Icon(
             Icons.add,
-            size: 50, // Larger "+" icon
-            color: Colors.white, // White color for contrast
+            size: 50, // Ukuran icon + lebih besar dari icon biasa
+            color: Colors.white, // Warna putih agar kontras
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+
 
   // Fungsi untuk membuat tampilan dengan jam dan tulisan alpha di bawahnya
   Widget _buildTimeInfo(IconData icon, String time, String label) {

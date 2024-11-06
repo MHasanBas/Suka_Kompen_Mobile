@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kompen/models/task.dart';
+import 'package:kompen/mahasiswa/models/task.dart';
 import '../print_letter_screen.dart';
 
 

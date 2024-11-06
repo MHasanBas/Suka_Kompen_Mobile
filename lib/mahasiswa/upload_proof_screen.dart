@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kompen/tasks_screen.dart'; // Tambahkan ini untuk import TasksScreen
+import 'package:kompen/mahasiswa/tasks_screen.dart'; // Tambahkan ini untuk import TasksScreen
 
 class UploadProofScreen extends StatelessWidget {
   @override
