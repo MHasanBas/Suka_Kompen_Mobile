@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'dosen/task_approval_page.dart'; // Import halaman dosen
+import 'dosen/dashboard.dart';
 import 'mahasiswa/home_page.dart' as mahasiswa; // Alias untuk halaman mahasiswa
 
 class LoginPage extends StatelessWidget {
@@ -41,7 +42,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => isSuccess ? TaskApprovalPage() : mahasiswa.HomePage(),
+                        builder: (context) => isSuccess ? HomeScreen() : mahasiswa.HomePage(),
                       ),
                     );
                   }
@@ -70,7 +71,7 @@ void login(BuildContext context) {
     showLoginResultDialog(context, 'Selamat datang, dosen!', true);
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => TaskApprovalPage()),
+      MaterialPageRoute(builder: (context) => HomeScreen()),
     );
   } else if (nim == '67890' && password == 'password') {
     showLoginResultDialog(context, 'Selamat datang, mahasiswa!', true);

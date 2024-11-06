@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'add_task_page.dart'; // Tambahkan titik koma di sini
+import 'dashboard.dart';
 
 void main() {
   runApp(MyApp());
@@ -118,7 +119,7 @@ class TaskApprovalPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
                   );
                 },
               ),
@@ -137,7 +138,7 @@ class TaskApprovalPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => NotificationScreen()),
+                    MaterialPageRoute(builder: (context) => TaskApprovalPage()),
                   );
                 },
               ),
